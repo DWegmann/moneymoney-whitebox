@@ -304,8 +304,9 @@ Die aktuellen Renditefelder enthalten bereits Prozentwerte. Der frühere Faktor
 Zum Nachziehen einer Whitebox-Änderung zuerst die veröffentlichten Abfragen und
 gegebenenfalls das Schema untersuchen. Für Datenprüfungen gezielt die betroffene
 Wallet und Portfolio-ID verwenden. Nur anonymisierte oder künstliche Beispiele
-in Tests und Dokumentation übernehmen. Die Erweiterung ist noch unsigniert;
-eine Änderung am Lua-Quelltext macht die bisherige Signatur unbrauchbar.
+in Tests und Dokumentation übernehmen. Version 1.16 liegt als signierte Datei vor;
+eine Änderung am Lua-Quelltext macht diese Signatur unbrauchbar und erfordert
+vor einer erneuten regulären Veröffentlichung eine neue Signatur durch MoneyMoney.
 Installation und Signierung sind im [README](README.md) beschrieben.
 
 ## Quellen und Prüfgrenzen
