@@ -713,3 +713,5 @@ function EndSession()
     connection:request("POST", BASE_URL .. "/logout", "_method=delete",
         "application/x-www-form-urlencoded", headers)
 end
+
+-- SIGNATURE: MCwCFCgkE3mviWhTcm+64s8eMUxNz5ZGAhRUFwK2EZXn87ldT0lzTp+aXF2WcA==

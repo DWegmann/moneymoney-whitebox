@@ -33,8 +33,9 @@ Kontensuche anhand der HTML-Seite jedoch nicht mehr. Die Reparatur ist in Versio
 - **Tests und Dokumentation:** Ergänzt wurden Offline-Tests mit künstlichen Daten,
   Referenzabfragen und eine [Implementierungsdokumentation](IMPLEMENTATION.md).
   Die Tests ersetzen keine vollständige Prüfung mit einem echten Konto.
-- **Signatur:** Die reparierte Version ist unsigniert und benötigt für die reguläre
-  Veröffentlichung eine neue Signatur durch MoneyMoney.
+- **Signatur:** Version 1.16 liegt als signierte `Whitebox.lua` im Repository und
+  als Datei im [GitHub Release](https://github.com/DWegmann/moneymoney-whitebox/releases/tag/v1.16)
+  vor. Die digitale Signaturprüfung in MoneyMoney kann aktiviert bleiben.
 
 Die vier Kontoansichten `KONTO`, `DEPOT`, `PORTFOLIO` und `PERFORMANCE` bleiben
 erhalten. Bestehende Konten bleiben zuordenbar, wenn ihre bisherige Kennung dem
@@ -110,23 +111,23 @@ Der zugehörige Text enthält zuerst die in der Beschreibung enthaltene Referenz
 und danach die zusätzliche Umsatznummer, zum Beispiel `987654321 123456789`.
 Alle Anpassungen an die neue Oberfläche bleiben in Version **1.16** zusammengefasst.
 
-### Installation einer angepassten Version
+### Installation der signierten Version 1.16
 
 1. In MoneyMoney **Hilfe → Zeige Datenbank im Finder** wählen und den Ordner
    **Extensions** öffnen.
 2. Die bisherige `Whitebox.lua` außerhalb dieses Ordners sichern und durch die
-   neue Datei ersetzen. Vorhandene Konten und Buchungen müssen nicht gelöscht werden.
-3. Die geänderte Datei ist noch nicht signiert. Für einen Test muss die Option
+   unveränderte [Whitebox.lua aus dem Release](https://github.com/DWegmann/moneymoney-whitebox/releases/download/v1.16/Whitebox.lua)
+   ersetzen. Vorhandene Konten und Buchungen müssen nicht gelöscht werden.
+3. Die Option
    **MoneyMoney → Einstellungen → Erweiterungen → Digitale Signatur von Extensions
-   überprüfen** ausgeschaltet sein. Für die reguläre Veröffentlichung muss die
-   Erweiterung durch MoneyMoney neu signiert werden.
+   überprüfen** aktiviert lassen oder wieder einschalten, falls sie für Tests
+   ausgeschaltet wurde. Änderungen an der Lua-Datei machen die Signatur ungültig.
 4. Den Zugang neu einrichten oder **Nach neuen Konten suchen** ausführen.
    Im Protokoll muss **Whitebox.lua version 1.16** erscheinen.
 
 Beim ersten Abruf Cashbestand, Depotwert und einzelne Käufe/Verkäufe mit Whitebox
 vergleichen. Bei vorhandenen Buchungen können geänderte Buchungstexte und Beträge
-die Duplikaterkennung beeinflussen. Bei Bedarf die gesicherte Datei zurückkopieren
-und die Signaturprüfung wieder einschalten.
+die Duplikaterkennung beeinflussen. Bei Bedarf die gesicherte Datei zurückkopieren.
 
 ### Offline-Tests
 
