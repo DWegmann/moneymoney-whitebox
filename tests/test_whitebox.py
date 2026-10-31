@@ -231,8 +231,27 @@ def test_cash_transactions_keep_sign_currency_reference_and_newest_first(h):
     assert result["balance"] == 998.75
     assert [t["amount"] for t in result["transactions"]] == [-1.25, 1000]
     assert result["transactions"][0]["currency"] == "EUR"
-    assert "T2" in result["transactions"][0]["purpose"]
+    assert result["transactions"][0]["purpose"] == "Gebühr T2"
+    assert result["transactions"][1]["purpose"] == "Einzahlung T1"
     assert "valueDate" not in result["transactions"][0]  # Not supplied by this API.
+
+
+@pytest.mark.parametrize("description,number,expected", [
+    ("Ertragsausschüttung IE00TEST0001", "123456789", "Ertragsausschüttung IE00TEST0001 123456789"),
+    ("Ertragsausschüttung\nIE00TEST0001", "123456789", "Ertragsausschüttung\nIE00TEST0001 123456789"),
+    ("Ertragsausschüttung IE00TEST0001", 123456789, "Ertragsausschüttung IE00TEST0001 123456789"),
+    ("Ertragsausschüttung IE00TEST0001", None, "Ertragsausschüttung IE00TEST0001"),
+    ("Ertragsausschüttung IE00TEST0001", "", "Ertragsausschüttung IE00TEST0001"),
+])
+def test_cash_distribution_reference_follows_description_and_isin(h, description, number, expected):
+    h.portfolio_response("MoneyMoneyCash", cashAccount={"balance": money(100)},
+        cashTransactions=[dict(date="2026-10-30", description=description,
+            number=number, value=money(12.34))])
+    row = h.refresh("KONTO")["transactions"][0]
+    assert row["purpose"] == expected
+    assert row.get("name") is None
+    assert row["amount"] == 12.34
+    assert row["currency"] == "EUR"
 
 
 @pytest.mark.parametrize("action", ["Kauf", "Verkauf"])

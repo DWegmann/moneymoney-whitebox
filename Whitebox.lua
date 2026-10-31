@@ -42,6 +42,7 @@
 -- 1.16 (2026-10-21, unsigned version): Replace retired HTML/REST
 -- scraping with GraphQL, including asset-class names and transaction text.
 -- Keep cash order titles separate from their reference numbers.
+-- Put other cash transaction references after the description, including distributions.
 -- KONTO + DEPOT or KONTO + PORTFOLIO represent one goal's assets.
 -- PERFORMANCE contains information only and contributes no balance.
 -- Architektur, API-Quellen und Datenzuordnung: siehe IMPLEMENTATION.md.
@@ -442,11 +443,12 @@ local function CashTransactionText(row)
         return name, purpose
     end
     -- Andere Buchungsarten unverändert als Beschreibung behandeln.
+    -- Die Referenz folgt wie im ursprünglichen Export auf den Beschreibungstext.
     purpose = Text(row.description)
     local number = Text(row.number)
     if number ~= "" then
         if purpose ~= "" then
-            purpose = number .. " " .. purpose
+            purpose = purpose .. " " .. number
         else
             purpose = "Referenz " .. number
         end
@@ -713,5 +715,3 @@ function EndSession()
     connection:request("POST", BASE_URL .. "/logout", "_method=delete",
         "application/x-www-form-urlencoded", headers)
 end
-
--- SIGNATURE: MCwCFCgkE3mviWhTcm+64s8eMUxNz5ZGAhRUFwK2EZXn87ldT0lzTp+aXF2WcA==

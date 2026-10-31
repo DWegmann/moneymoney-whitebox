@@ -234,8 +234,10 @@ eine Prüfzifferprüfung erfolgt dabei nicht.
 
 Die erste Nummer stammt aus dem Ende der Beschreibung, die zweite aus `number`.
 Fehlende Referenzen werden ausgelassen, identische nicht doppelt ausgegeben.
-Andere Cashbuchungen behalten die bisherige Aufbereitung: Nummer vor dem
-Beschreibungstext bzw. `Referenz <Nummer>`, wenn die Beschreibung leer ist.
+Bei anderen Cashbuchungen folgt die Nummer wie im ursprünglichen Export auf den
+Beschreibungstext, zum Beispiel `Ertragsausschüttung IE00TEST0001 123456789`.
+Ohne Beschreibung lautet der Text weiterhin `Referenz <Nummer>`. Ohne Nummer
+bleibt die Beschreibung unverändert. Bereits enthaltene Zeilenumbrüche bleiben erhalten.
 
 ### DEPOT: bisherige Reihenfolge erhalten
 
@@ -304,9 +306,11 @@ Die aktuellen Renditefelder enthalten bereits Prozentwerte. Der frühere Faktor
 Zum Nachziehen einer Whitebox-Änderung zuerst die veröffentlichten Abfragen und
 gegebenenfalls das Schema untersuchen. Für Datenprüfungen gezielt die betroffene
 Wallet und Portfolio-ID verwenden. Nur anonymisierte oder künstliche Beispiele
-in Tests und Dokumentation übernehmen. Version 1.16 liegt als signierte Datei vor;
-eine Änderung am Lua-Quelltext macht diese Signatur unbrauchbar und erfordert
-vor einer erneuten regulären Veröffentlichung eine neue Signatur durch MoneyMoney.
+in Tests und Dokumentation übernehmen. Der veröffentlichte Release 1.16 liegt als
+signierte Datei vor. Die Arbeitsfassung mit der korrigierten Referenzreihenfolge
+ist noch unsigniert; die bisherige Signatur wurde entfernt, da sie nach einer
+Quelltextänderung ungültig ist. Vor einer erneuten regulären Veröffentlichung
+ist eine neue Signatur durch MoneyMoney erforderlich.
 Installation und Signierung sind im [README](README.md) beschrieben.
 
 ## Quellen und Prüfgrenzen
