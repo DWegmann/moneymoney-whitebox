@@ -32,7 +32,7 @@ auch Sonderzeichen im Passwort und die Weiterleitung zur Wallet getestet.
 | Anmeldung | Formularfelder, Tokenanforderung, falsche Zugangsdaten, fehlendes Token, Abmeldung |
 | Kontenzuordnung | Vier Ansichten, aktive Anlagen, vollständiger Slug, Refresh ohne vorherige Kontensuche, fremde IDs |
 | Umsätze | Vorzeichen und Währung, Datum, Zeitraum, Sortierung, keine eigene Betragsberechnung aus Stückzahl und Kurs |
-| KONTO-Texte | `Order`/`ORDER`/`order`, Kauf/Verkauf, Zeilenumbrüche, getrennter Titel, Reihenfolge und fehlende/doppelte Referenzen |
+| KONTO-Texte | `Order`/`ORDER`/`order`, Kauf/Verkauf, Zeilenumbrüche, getrennter Titel, Reihenfolge und fehlende/doppelte Referenzen; Ertragsausschüttungen und sonstige Cashbuchungen mit nachgestellter Umsatznummer |
 | DEPOT-Texte | Anlageklasse, Stückzahl, ausdrücklich ungefährer Kurs, ISIN und TAN, Fallback bei fehlenden Metadaten |
 | Bestände | Bruchstückzahlen, Bewertung, optionale Kurse und Kaufpreise |
 | Anlageklassen | Zuordnung nach Anlage und ISIN, fehlende/widersprüchliche Klassen, Folgeseiten, Caching, Cursorfehler, Sitzungswechsel |

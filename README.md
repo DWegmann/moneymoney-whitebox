@@ -33,9 +33,10 @@ Kontensuche anhand der HTML-Seite jedoch nicht mehr. Die Reparatur ist in Versio
 - **Tests und Dokumentation:** Ergänzt wurden Offline-Tests mit künstlichen Daten,
   Referenzabfragen und eine [Implementierungsdokumentation](IMPLEMENTATION.md).
   Die Tests ersetzen keine vollständige Prüfung mit einem echten Konto.
-- **Signatur:** Version 1.16 liegt als signierte `Whitebox.lua` im Repository und
-  als Datei im [GitHub Release](https://github.com/DWegmann/moneymoney-whitebox/releases/tag/v1.16)
-  vor. Die digitale Signaturprüfung in MoneyMoney kann aktiviert bleiben.
+- **Signatur:** Der veröffentlichte [Release 1.16](https://github.com/DWegmann/moneymoney-whitebox/releases/tag/v1.16)
+  enthält eine signierte `Whitebox.lua`. Die aktuelle Arbeitsfassung mit der
+  korrigierten Referenzreihenfolge ist noch unsigniert und benötigt vor der
+  regulären Verwendung eine neue Signatur durch MoneyMoney.
 
 Die vier Kontoansichten `KONTO`, `DEPOT`, `PORTFOLIO` und `PERFORMANCE` bleiben
 erhalten. Bestehende Konten bleiben zuordenbar, wenn ihre bisherige Kennung dem
@@ -110,6 +111,10 @@ als Titel übergeben, zum Beispiel `Ausführung Order Verkauf IE00TEST0001`.
 Der zugehörige Text enthält zuerst die in der Beschreibung enthaltene Referenz
 und danach die zusätzliche Umsatznummer, zum Beispiel `987654321 123456789`.
 Alle Anpassungen an die neue Oberfläche bleiben in Version **1.16** zusammengefasst.
+
+Bei sonstigen Cashbuchungen steht die Umsatznummer wieder hinter dem
+Beschreibungstext, zum Beispiel `Ertragsausschüttung IE00TEST0001 123456789`.
+Diese Korrektur ist in der Arbeitsfassung enthalten, noch nicht im signierten Release 1.16.
 
 ### Installation der signierten Version 1.16
 
