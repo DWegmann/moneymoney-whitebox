@@ -1,7 +1,7 @@
 # Implementierung und Whitebox-API
 
-Stand: **21.10.2026**, Erweiterung **1.16**, untersuchte Whitebox-Oberfläche
-**2.10.1**. Dieses Dokument beschreibt die Implementierung und die beim Umbau
+Erweiterung **1.16.1**, API-Untersuchung vom **21.10.2026**, untersuchte
+Whitebox-Oberfläche **2.10.1**. Dieses Dokument beschreibt die Implementierung und die beim Umbau
 bestätigten Schnittstellen. Die Whitebox-Abfragen wurden aus dem ausgelieferten
 Frontend und ergänzend durch lesende Schema- und Datenabfragen ermittelt. Daraus
 folgt keine Zusage, dass diese internen Schnittstellen dauerhaft unverändert bleiben.
@@ -312,6 +312,11 @@ ist noch unsigniert; die bisherige Signatur wurde entfernt, da sie nach einer
 Quelltextänderung ungültig ist. Vor einer erneuten regulären Veröffentlichung
 ist eine neue Signatur durch MoneyMoney erforderlich.
 Installation und Signierung sind im [README](README.md) beschrieben.
+
+Die Versionshistorie und die geplante Veröffentlichung bezeichnen die Korrektur
+als **1.16.1**. `WebBanking.version` erwartet gemäß MoneyMoney-API eine Zahl;
+daher verwendet das Skript dort den numerischen Wert `1.161` statt einer
+Zeichenkette mit zwei Punkten. Der signierte Release 1.16 bleibt unverändert.
 
 ## Quellen und Prüfgrenzen
 

@@ -42,7 +42,9 @@
 -- 1.16 (2026-10-21, unsigned version): Replace retired HTML/REST
 -- scraping with GraphQL, including asset-class names and transaction text.
 -- Keep cash order titles separate from their reference numbers.
+-- 1.16.1 (2026-11-01, unsigned version):
 -- Put other cash transaction references after the description, including distributions.
+--
 -- KONTO + DEPOT or KONTO + PORTFOLIO represent one goal's assets.
 -- PERFORMANCE contains information only and contributes no balance.
 -- Architektur, API-Quellen und Datenzuordnung: siehe IMPLEMENTATION.md.
@@ -50,7 +52,8 @@
 local BASE_URL = "https://inside.whitebox.eu"
 
 WebBanking {
-    version = 1.16,
+    -- Release 1.16.1; MoneyMoney requires a numeric version rather than a dotted string.
+    version = 1.161,
     url = BASE_URL .. "/login",
     services = {"Whitebox"},
     description = "Whitebox"
